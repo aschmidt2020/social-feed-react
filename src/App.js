@@ -4,8 +4,8 @@ import DisplayEntries from './Components/DisplayEntries/DisplayEntries';
 
 function App() {
 
-  const [entries, setEntries] = useState([{user: 'Welcome to SocialFeed', post: 'Please start creating posts.', liked:false, disliked:false}])
-  //const [post, setPost] = useState({user: 'Welcome to SocialFeed', post: 'Please start creating posts.', liked:false})
+  const [entries, setEntries] = useState([])
+  const [post, setPost] = useState({user: 'Welcome to SocialFeed', post: 'Please start creating posts.', liked:false, disliked:false})
 
   function addNewEntry(post){
     let tempEntries = [post, ...entries];
@@ -13,6 +13,8 @@ function App() {
   }
 
   function changeLiked(entry){ //always moved liked/un-liked  posts to top of feed
+    debugger
+
     let otherEntries = entries.filter(e => {
       if(e.user == entry.user && e.post == entry.post && e.liked == entry.liked ){
         return false;
@@ -29,10 +31,10 @@ function App() {
       disliked: entry.disliked
     }
     
-    //setPost(updatedPost);
+    setPost(updatedPost);
 
-    //debugger
-    
+    debugger
+  
     let tempEntries = [updatedPost, ...otherEntries];
     setEntries(tempEntries);
   }

@@ -16,16 +16,20 @@ const AddEntry = (props) => {
             disliked: disliked
         };
 
-        props.addNewEntry(newPost)
+        props.addNewEntry(newPost);
+
+        setUser(''); //sets user and post to blank to reset form after submission
+        setPost('');
 
     }
+
     return (
-        <form onSubmit={handleSubmit}>
+        <form id='newPost' onSubmit={handleSubmit}>
             <label> User </label>
-            <input type='text' value={user} onChange={(event) => setUser(event.target.value)}/>
+            <input id='userForm' type='text' value={user} onChange={(event) => setUser(event.target.value)}/>
 
             <label> Post </label>
-            <input type='text' value={post} onChange={(event) => setPost(event.target.value)}/> 
+            <input id='postForm' type='text' value={post} onChange={(event) => setPost(event.target.value)}/> 
 
             <button type='submit'>Post</button>
         </form>
