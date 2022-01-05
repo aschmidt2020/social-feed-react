@@ -7,7 +7,7 @@ const LikeButton = (props) => {
     }
     else{
         return(
-            <span><button onClick={props.click}>Not Yet Liked</button></span>
+            <span><button onClick={props.click}>Not Liked</button></span>
         )
         
     }

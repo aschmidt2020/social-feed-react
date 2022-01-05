@@ -1,12 +1,17 @@
-import LikeButton from "../LikeButton/LikeButton";
-
+import LikeButton from '../LikeButton/LikeButton';
+import DislikeButton from '../DislikeButton/DislikeButton'
 const DisplayEntries = (props) => {
 
     
-    function toggle(entry) { //change to arrow function and inside of html
+    function toggleLiked(entry) { //change to arrow function and inside of html
        // debugger;
         props.changeLiked(entry);
          }
+
+    function toggleDisliked(entry) { //change to arrow function and inside of html
+    // debugger;
+        props.changeDisliked(entry);
+        }
 
     return (
         props.entries.map((entry) => {
@@ -14,7 +19,8 @@ const DisplayEntries = (props) => {
                 <span>
                     <h1>{entry.user}</h1>
                     <p>{entry.post}</p>
-                    <LikeButton click={() => toggle(entry)} likedStatus={entry.liked} />
+                    <LikeButton click={() => toggleLiked(entry)} likedStatus={entry.liked} />
+                    <DislikeButton click={() => toggleDisliked(entry)} dislikedStatus={entry.disliked} />
                 </span>
             )
             
