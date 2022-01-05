@@ -5,7 +5,7 @@ import DisplayEntries from './Components/DisplayEntries/DisplayEntries';
 function App() {
 
   const [entries, setEntries] = useState([])
-  const [post, setPost] = useState({user: 'Welcome to SocialFeed', post: 'Please start creating posts.', liked:false, disliked:false})
+  const [post, setPost] = useState({user: 'Welcome to SocialFeed', post: 'Please start creating posts.', liked:false, disliked:false, date:'01-05-2022'})
 
   function addNewEntry(post){
     let tempEntries = [post, ...entries];

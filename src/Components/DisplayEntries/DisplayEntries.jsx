@@ -18,6 +18,7 @@ const DisplayEntries = (props) => {
             return (
                 <span>
                     <h1>{entry.user}</h1>
+                    <p>{entry.date}</p>
                     <p>{entry.post}</p>
                     <LikeButton click={() => toggleLiked(entry)} likedStatus={entry.liked} />
                     <DislikeButton click={() => toggleDisliked(entry)} dislikedStatus={entry.disliked} />

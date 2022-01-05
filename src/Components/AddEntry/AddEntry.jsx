@@ -2,10 +2,15 @@ import React, { useState } from 'react';
 
 const AddEntry = (props) => {
 
+    let today = new Date();
+    let todayDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    console.log(todayDate)
+    
     const [user, setUser] = useState('');
     const [post, setPost] = useState('');
     const [liked, setLiked] = useState(false);
     const [disliked, setDisliked] = useState(false);
+    const [date, setDate] = useState(todayDate)
 
     function handleSubmit(event){
         event.preventDefault();
@@ -13,7 +18,8 @@ const AddEntry = (props) => {
             user: user,
             post: post,
             liked: liked,
-            disliked: disliked
+            disliked: disliked,
+            date: date,
         };
 
         props.addNewEntry(newPost);
@@ -30,7 +36,7 @@ const AddEntry = (props) => {
 
             <label> Post </label>
             <input id='postForm' type='text' value={post} onChange={(event) => setPost(event.target.value)}/> 
-
+            
             <button type='submit'>Post</button>
         </form>
     );
