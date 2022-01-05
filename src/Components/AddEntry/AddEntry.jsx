@@ -4,15 +4,17 @@ const AddEntry = (props) => {
 
     const [user, setUser] = useState('');
     const [post, setPost] = useState('');
+    const [liked, setLiked] = useState(false);
 
     function handleSubmit(event){
         event.preventDefault();
-        let newEntry = {
+        let newPost = {
             user: user,
-            post: post
+            post: post,
+            liked: liked
         };
 
-        props.addNewEntry(newEntry)
+        props.addNewEntry(newPost)
 
     }
     return (
