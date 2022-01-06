@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
 
-  const [entries, setEntries] = useState([{user: 'Welcome to SocialFeed', post: 'Please start creating posts.', liked:false, disliked:false, date:'2022-1-5'}])
+  const [entries, setEntries] = useState([{user: 'Welcome to SocialFeed', post: 'Please start creating posts.', liked:false, disliked:false, date:'and make sure to have fun!'}])
   //const [post, setPost] = useState({user: 'Welcome to SocialFeed', post: 'Please start creating posts.', liked:false, disliked:false, date:'01-05-2022'})
 
   function addNewEntry(post){

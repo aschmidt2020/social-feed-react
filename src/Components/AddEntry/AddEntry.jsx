@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const AddEntry = (props) => {
 
     let today = new Date();
-    let todayDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    let todayDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate() + ' ' + today.getHours() + ':' + String(today.getMinutes()).padStart(2, "0");
     console.log(todayDate)
 
     const [user, setUser] = useState('');
@@ -11,6 +11,10 @@ const AddEntry = (props) => {
     const [liked, setLiked] = useState(false);
     const [disliked, setDisliked] = useState(false);
     const [date, setDate] = useState(todayDate)
+
+    useEffect(() => { //will update date/time when time changed
+        setDate(todayDate)
+    },[todayDate])
 
     function handleSubmit(event){
         event.preventDefault();
