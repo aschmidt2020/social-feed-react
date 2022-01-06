@@ -4,63 +4,19 @@ import DisplayEntries from './Components/DisplayEntries/DisplayEntries';
 
 function App() {
 
-  const [entries, setEntries] = useState([])
-  const [post, setPost] = useState({user: 'Welcome to SocialFeed', post: 'Please start creating posts.', liked:false, disliked:false, date:'01-05-2022'})
+  const [entries, setEntries] = useState([{user: 'Welcome to SocialFeed', post: 'Please start creating posts.', liked:false, disliked:false, date:'01-05-2022'}])
+  //const [post, setPost] = useState({user: 'Welcome to SocialFeed', post: 'Please start creating posts.', liked:false, disliked:false, date:'01-05-2022'})
 
   function addNewEntry(post){
     let tempEntries = [post, ...entries];
     setEntries(tempEntries);
   }
 
-  function changeLiked(entry){ //always moved liked/un-liked  posts to top of feed
-    debugger
-
-    let otherEntries = entries.filter(e => {
-      if(e.user == entry.user && e.post == entry.post && e.liked == entry.liked ){
-        return false;
-      }
-      else{return true;}
-    })
-
-    let opposite = !entry.liked;
-    
-    let updatedPost= {
-      user: entry.user,
-      post: entry.post,
-      liked: opposite,
-      disliked: entry.disliked
-    }
-    
-    setPost(updatedPost);
-
-    debugger
-  
-    let tempEntries = [updatedPost, ...otherEntries];
+  function changeLiked(tempEntries){ 
     setEntries(tempEntries);
   }
 
-  function changeDisliked(entry){ //always moved liked/un-liked  posts to top of feed
-    let otherEntries = entries.filter(e => {
-      if(e.user == entry.user && e.post == entry.post && e.liked == entry.liked ){
-        return false;
-      }
-      else{return true;}
-    })
-
-    let opposite = !entry.disliked;
-    
-    let updatedPost= {
-      user: entry.user,
-      post: entry.post,
-      liked: entry.liked,
-      disliked: opposite
-    }
-    
-    //setPost(updatedPost);
-
-    //debugger
-    
-    let tempEntries = [updatedPost, ...otherEntries];
+  function changeDisliked(tempEntries){
     setEntries(tempEntries);
   }
   
