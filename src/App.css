@@ -36,3 +36,14 @@ p{
     margin-left: 0%;
     width: 35%
 }
+
+ol {
+    list-style: none;
+    display: flex;
+    flex-direction: column-reverse;
+
+}
+
+li {
+    flex: 0 0 auto;
+}
