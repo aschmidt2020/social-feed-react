@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
 
-  const [entries, setEntries] = useState([{user: 'Welcome to SocialFeed', post: 'Please start creating posts.', liked:false, disliked:false, date:'01-05-2022'}])
+  const [entries, setEntries] = useState([{user: 'Welcome to SocialFeed', post: 'Please start creating posts.', liked:false, disliked:false, date:'2022-01-05'}])
   //const [post, setPost] = useState({user: 'Welcome to SocialFeed', post: 'Please start creating posts.', liked:false, disliked:false, date:'01-05-2022'})
 
   function addNewEntry(post){
@@ -24,19 +24,19 @@ function App() {
   return (
     <div>
       <div className='container'>
-        <div className='row'>
-        <h1 style={{'margin-top': '1em'}}>Social<small className='text-muted'>Feed</small></h1>
+        <div className='row' style={{'margin-top': '2em'}}>
+          <h1 style={{'margin-top': '1em'}, {'background-color': '#a3aeba'}}>&nbsp;&nbsp;Social
+          <small className='text-white'>Feed<i className="bi bi-chat-square position-absolute" style={{"font-size": "1rem"}}></i></small></h1>
         </div>
 
         <div className='row' style={{'margin-top': '1em'}, {'margin-bottom': '1em'}}>
           <div className='col center-text'>
           <AddEntry addNewEntry={addNewEntry}/>
-        </div>
+          </div>
 
-        <div className='col'>
+          <div className='col' style={{'margin-top': '2em'}}>
           <DisplayEntries entries={entries} changeLiked={changeLiked} changeDisliked={changeDisliked}/>
-        </div>
-
+          </div>
         </div>
 
 

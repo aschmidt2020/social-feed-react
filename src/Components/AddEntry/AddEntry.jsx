@@ -34,8 +34,8 @@ const AddEntry = (props) => {
 
     return (
         <span>
-            <div className='row'>
-                <div className='col-10 p-5 mb-4 bg-light rounded-3' style={{'margin-top': '1em'}}>
+            <div className='row sticky-top'>
+                <div className='col-10 p-5 mb-4 bg-light rounded-3' style={{'margin-top': '3em'}}>
                     <p>Add A Post Here</p>
                     <form id='newPost' onSubmit={handleSubmit}>
                         <div className="form-floating" style={{'margin-bottom': '1em'}}>
@@ -49,7 +49,13 @@ const AddEntry = (props) => {
                         <button type='submit' className='btn btn-primary' style={{'margin-top': '1em'}}>Post</button>
                     </form>
                 </div>
-             </div>
+                <div className='col-10 p-5 mb-4 bg-light rounded-3' style={{'margin-top': '1em'}}>
+                    <p1>Motivational Quote:</p1>
+                    <p className='post-text'>“Believe in yourself. You are braver than you think, more talented than you know, and capable of more than you imagine.”</p>
+                    <br></br>
+                    <figcaption className="blockquote-footer center-text">Toy T. Bennett<cite title="Source Title"> The Light in the Heart </cite> </figcaption>
+                </div>
+                </div>
         </span>
         );
 
