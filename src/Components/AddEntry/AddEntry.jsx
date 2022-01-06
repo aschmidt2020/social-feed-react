@@ -7,8 +7,6 @@ const AddEntry = (props) => {
 
     const [user, setUser] = useState('');
     const [post, setPost] = useState('');
-    const [liked, setLiked] = useState(false);
-    const [disliked, setDisliked] = useState(false);
     const [date, setDate] = useState(todayDate)
 
     useEffect(() => { //will update date/time when time changed
@@ -20,8 +18,6 @@ const AddEntry = (props) => {
         let newPost = {
             user: user,
             post: post,
-            liked: liked,
-            disliked: disliked,
             date: date,
         };
 

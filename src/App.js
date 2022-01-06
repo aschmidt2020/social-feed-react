@@ -5,19 +5,10 @@ import './App.css'
 
 function App() {
 
-  const [entries, setEntries] = useState([{user: 'Welcome to SocialFeed', post: 'Please start creating posts.', liked:false, disliked:false, date:'and make sure to have fun!'}])
-  //const [post, setPost] = useState({user: 'Welcome to SocialFeed', post: 'Please start creating posts.', liked:false, disliked:false, date:'01-05-2022'})
+  const [entries, setEntries] = useState([{user: 'Welcome to SocialFeed', post: 'Please start creating posts.', date:'and make sure to have fun!'}])
 
   function addNewEntry(post){
     let tempEntries = [post, ...entries];
-    setEntries(tempEntries);
-  }
-
-  function changeLiked(tempEntries){ 
-    setEntries(tempEntries);
-  }
-
-  function changeDisliked(tempEntries){
     setEntries(tempEntries);
   }
   
@@ -35,7 +26,7 @@ function App() {
           </div>
 
           <div className='col' style={{'marginTop': '2em'}}>
-          <DisplayEntries entries={entries} changeDisliked={changeDisliked} changeLiked={changeLiked} />
+          <DisplayEntries entries={entries} />
           </div>
         </div>
 
