@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AddEntry from './Components/AddEntry/AddEntry';
 import DisplayEntries from './Components/DisplayEntries/DisplayEntries';
+import './App.css'
 
 function App() {
 
@@ -22,8 +23,25 @@ function App() {
   
   return (
     <div>
-      <AddEntry addNewEntry={addNewEntry}/>
-      <DisplayEntries entries={entries} changeLiked={changeLiked} changeDisliked={changeDisliked}/>
+      <div className='container'>
+        <div className='row'>
+        <h1 style={{'margin-top': '1em'}}>Social<small className='text-muted'>Feed</small></h1>
+        </div>
+
+        <div className='row' style={{'margin-top': '1em'}, {'margin-bottom': '1em'}}>
+          <div className='col center-text'>
+          <AddEntry addNewEntry={addNewEntry}/>
+        </div>
+
+        <div className='col'>
+          <DisplayEntries entries={entries} changeLiked={changeLiked} changeDisliked={changeDisliked}/>
+        </div>
+
+        </div>
+
+
+
+      </div>
     </div>
   );
 }

@@ -68,11 +68,16 @@ const DisplayEntries = (props) => {
         props.entries.map((entry) => {
             return (
                 <span>
-                    <h1>{entry.user}</h1>
-                    <p>{entry.date}</p>
-                    <p>{entry.post}</p>
-                    <LikeButton click={() => toggleLiked(entry)} likedStatus={entry.liked} />
-                    <DislikeButton click={() => toggleDisliked(entry)} dislikedStatus={entry.disliked} />
+                    <div className='row border-box' style={{'margin-top' : '1em'}}>
+                        <p1>{entry.user}</p1>
+                        <p className='post-text'>{entry.post}</p>
+                        <figcaption className="blockquote-footer center-text"> <cite title="Source Title">{entry.date} </cite> </figcaption>
+                            <span className='center-text'>
+                                <LikeButton click={() => toggleLiked(entry)} likedStatus={entry.liked} />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <DislikeButton click={() => toggleDisliked(entry)} dislikedStatus={entry.disliked} />
+                            </span>
+                    </div>
                 </span>
             )
             

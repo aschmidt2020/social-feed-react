@@ -2,12 +2,12 @@ const DislikeButton = (props) => {
     // debugger
      if(props.dislikedStatus == true){
          return (
-             <span><button onClick={props.click}>Disliked</button></span>
+             <span><button className='btn bg-transparent' onClick={props.click}><i className="bi bi-hand-thumbs-down-fill"></i></button></span>
              );
      }
      else{
          return(
-             <span><button onClick={props.click}>Not Disliked</button></span>
+             <span><button className='btn bg-transparent' onClick={props.click}><i className="bi bi-hand-thumbs-down"></i></button></span>
          )
          
      }
