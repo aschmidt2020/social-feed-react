@@ -12,6 +12,7 @@
 
 p{
     font-weight: bold;
+    font-size: larger;
 }
 
 .post-text {
@@ -25,7 +26,13 @@ p{
     -webkit-box-shadow: none!important; 
 }
 
-p1 {
-    font-size: larger;
-    font-weight: bold;
+.col-10.p-5.mb-4.rounded {
+    background-color: #e3e6e9;
+}
+
+.addEntry {
+    position: fixed;
+    margin-top: 10px;
+    margin-left: 0%;
+    width: 700px
 }

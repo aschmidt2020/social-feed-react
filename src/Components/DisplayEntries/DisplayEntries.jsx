@@ -1,8 +1,7 @@
 import LikeButton from '../LikeButton/LikeButton';
 import DislikeButton from '../DislikeButton/DislikeButton'
-const DisplayEntries = (props) => {
 
-    
+const DisplayEntries = (props) => {    
     function toggleLiked(entry) {
        let entryIndex = props.entries.findIndex(e => {
         if(e.user == entry.user && e.post == entry.post && e.liked == entry.liked ){
@@ -68,8 +67,8 @@ const DisplayEntries = (props) => {
         props.entries.map((entry) => {
             return (
                 <span>
-                    <div className='row border-box' style={{'margin-top' : '1em'}}>
-                        <p1>{entry.user}</p1>
+                    <div className='row border-box' style={{'marginTop' : '1em'}}>
+                        <p>{entry.user}</p>
                         <p className='post-text'>{entry.post}</p>
                         <figcaption className="blockquote-footer center-text"> <cite title="Source Title">{entry.date} </cite> </figcaption>
                             <span className='center-text'>

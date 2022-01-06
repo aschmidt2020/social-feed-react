@@ -24,18 +24,18 @@ function App() {
   return (
     <div>
       <div className='container'>
-        <div className='row' style={{'margin-top': '2em'}}>
-          <h1 style={{'margin-top': '1em'}, {'background-color': '#a3aeba'}}>&nbsp;&nbsp;Social
-          <small className='text-white'>Feed<i className="bi bi-chat-square position-absolute" style={{"font-size": "1rem"}}></i></small></h1>
+        <div className='row sticky-top' style={{'marginTop': '2em'}}>
+          <h1 style={{'backgroundColor': '#a3aeba'}}>&nbsp;&nbsp;Social
+          <small className='text-white'>Feed<i className="bi bi-chat-square position-absolute" style={{"fontSize": "1rem"}}></i></small></h1>
         </div>
 
-        <div className='row' style={{'margin-top': '1em'}, {'margin-bottom': '1em'}}>
+        <div className='row' style={{'marginTop': '1em'}, {'marginBottom': '1em'}}>
           <div className='col center-text'>
           <AddEntry addNewEntry={addNewEntry}/>
           </div>
 
-          <div className='col' style={{'margin-top': '2em'}}>
-          <DisplayEntries entries={entries} changeLiked={changeLiked} changeDisliked={changeDisliked}/>
+          <div className='col' style={{'marginTop': '2em'}}>
+          <DisplayEntries entries={entries} changeDisliked={changeDisliked} changeLiked={changeLiked} />
           </div>
         </div>
 
