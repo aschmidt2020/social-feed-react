@@ -5,10 +5,14 @@ import './App.css'
 
 function App() {
 
-  const [entries, setEntries] = useState([{user: 'Welcome to SocialFeed', post: 'Please start creating posts.', date:'and make sure to have fun!'}])
+  const [entries, setEntries] = useState([
+        {timeStamp: "0000-00-00 00:00:00:000",
+         user: 'Welcome to SocialFeed', 
+         post: 'Please start creating posts.', 
+         date:'and make sure to have fun!'}])
 
   function addNewEntry(post){
-    let tempEntries = [...entries, post]; //adds new post to end of entry list in order to keep indexing correct for like buttons
+    let tempEntries = [post, ...entries];
     setEntries(tempEntries);
   }
 

@@ -4,18 +4,24 @@ const AddEntry = (props) => {
 
     let today = new Date();
     let todayDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate() + ' ' + today.getHours() + ':' + String(today.getMinutes()).padStart(2, "0");
+    let todayTimeStamp = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate() + ' ' +
+                     today.getHours() + ':' + String(today.getMinutes()).padStart(2, "0") + ':' + String(today.getSeconds()).padStart(2, "0") + ':' + 
+                     String(today.getMilliseconds()).padStart(2, "0");
 
+    const [timeStamp, setTimeStamp] = useState(todayTimeStamp)
     const [user, setUser] = useState('');
     const [post, setPost] = useState('');
     const [date, setDate] = useState(todayDate)
 
     useEffect(() => { //will update date/time when time changed
-        setDate(todayDate)
-    },[todayDate])
+        setDate(todayDate);
+        setTimeStamp(todayTimeStamp)
+    },[todayTimeStamp])
 
     function handleSubmit(event){
         event.preventDefault();
         let newPost = {
+            timeStamp: timeStamp,
             user: user,
             post: post,
             date: date,
