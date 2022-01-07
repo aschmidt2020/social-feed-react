@@ -9,7 +9,7 @@ const DeleteButton = (props) => {
     }
     
     return ( 
-        <span><button id={props.id} className='btn bg-transparent' onClick={handleClick}><i className="bi bi-trash" style={{'position': 'right'}}></i></button>
+        <span><button id={props.id} className='btn bg-transparent' onClick={handleClick}><i className="bi bi-trash"></i></button>
         </span>
      );
 }

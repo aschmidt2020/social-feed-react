@@ -31,7 +31,7 @@ const ReplySection = (props) => {
 
     return ( 
         <span className='center-text'>
-            <button className='btn bg-transparent' type="button" data-bs-toggle="collapse" data-bs-target="#addReply" aria-expanded="false" aria-controls="addReply">
+            <button id={props.timeStamp} className='btn bg-transparent' type="button" data-bs-toggle="collapse" data-bs-target="#addReply" aria-expanded="false" aria-controls="addReply">
             <i className="bi bi-chat-square-dots"></i>
             </button>
 
