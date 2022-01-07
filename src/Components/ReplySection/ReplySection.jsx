@@ -3,7 +3,7 @@ import DeleteReply from "../DeleteReply/DeleteReply";
 const ReplySection = (props) => {
     return ( 
         <span>
-            <p>Comments</p>
+            <p>Replies</p>
             {props.replies.map((reply) => {
                 return (
                     <div className='row border-box-comments' style={{'marginBottom': '1em'}}>
