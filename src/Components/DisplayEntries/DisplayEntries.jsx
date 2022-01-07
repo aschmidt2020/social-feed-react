@@ -1,4 +1,5 @@
 import DeleteButton from '../DeleteButton/DeleteButton';
+import AddReply from '../AddReply/AddReply';
 import ReplySection from '../ReplySection/ReplySection';
 import LikeDislikeButton from '../LikeDislikeButton/LikeDislikeButton';
 
@@ -20,22 +21,11 @@ const DisplayEntries = (props) => {
                             <span className='center-text'>
                                 <LikeDislikeButton />
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <ReplySection entry={entry} addReply={props.addReply}/>
+                                <AddReply entry={entry} addReply={props.addReply}/>
                             </span>
-                            
-
-                            
+    
                             <span style={{'marginTop':'1em'}}>
-                                <p>Comments</p>
-                                {entry.replySection.map((reply) => {
-                                return(
-                                        <div className='border-box-comments' style={{'marginBottom': '1em'}}>
-                                            <span className='comment-name'>{reply.name}</span>
-                                            <br></br>
-                                            <span className='comment-text'>{reply.reply}</span>
-                                        </div>
-                                )
-                                })}
+                                <ReplySection replies={entry.replySection}/>
                             </span>
                         </div>
                         </li>
@@ -47,4 +37,4 @@ const DisplayEntries = (props) => {
      );
     }
  
-export default DisplayEntries; 
+export default DisplayEntries;
