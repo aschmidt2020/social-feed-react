@@ -25,6 +25,7 @@ const AddEntry = (props) => {
             user: user,
             post: post,
             date: date,
+            replySection: []
         };
 
         props.addNewEntry(newPost);

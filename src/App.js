@@ -9,7 +9,9 @@ function App() {
         {timeStamp: "0000-00-00 00:00:00:000",
          user: 'Welcome to SocialFeed', 
          post: 'Please start creating posts.', 
-         date:'and make sure to have fun!'}])
+         date:'and make sure to have fun!',
+         replySection: []
+        }])
 
   function addNewEntry(post){
     let tempEntries = [post, ...entries];
@@ -19,7 +21,23 @@ function App() {
   function deleteEntry(post){
     let tempEntries = [...entries]
     let entryToBeDeletedIndex = entries.findIndex(e => {
-      if(e.user == post.user && e.post == post.post && e.date == post.date){
+      if(e.timeStamp == post.timeStamp){ //used timeStamp to identify since it should be unique for each post
+        return true;
+      }
+      else{
+        return false;
+      }
+    })
+
+    tempEntries.splice(entryToBeDeletedIndex, 1); //deleted entry at specified index
+    setEntries(tempEntries);
+  }
+
+  function addReply(entry){
+    //debugger
+    let tempEntries = [...entries];
+    let entryToBeDeletedIndex = entries.findIndex(e => {
+      if(e.timeStamp == entry.timeStamp){ //used timeStamp to identify since it should be unique for each post
         return true;
       }
       else{
@@ -28,10 +46,9 @@ function App() {
     })
 
     //debugger
-
-    tempEntries.splice(entryToBeDeletedIndex, 1);
-    console.log(tempEntries);
-    setEntries(tempEntries);
+    tempEntries.splice(entryToBeDeletedIndex, 1); //deletes old entry
+    tempEntries.splice(entryToBeDeletedIndex, 0, entry); //replaces with new entry
+    setEntries(tempEntries)
   }
   
   return (
@@ -48,12 +65,9 @@ function App() {
           </div>
 
           <div className='col' style={{'marginTop': '2em'}}>
-          <DisplayEntries entries={entries} deleteEntry={deleteEntry}/>
+          <DisplayEntries entries={entries} deleteEntry={deleteEntry} addReply={addReply}/>
           </div>
         </div>
-
-
-
       </div>
     </div>
   );

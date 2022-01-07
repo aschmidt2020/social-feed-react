@@ -13,12 +13,12 @@ const DislikeButton = (props) => {
 
      if(dislikedStatus){
          return (
-             <span><button id={props.id} className='btn bg-transparent' onClick={handleClick}><i className="bi bi-hand-thumbs-down-fill"></i></button></span>
+             <span><button className='btn bg-transparent' onClick={handleClick}><i className="bi bi-hand-thumbs-down-fill"></i></button></span>
              );
      }
   
     return(
-        <span><button id={props.id} className='btn bg-transparent' onClick={handleClick}><i className="bi bi-hand-thumbs-down"></i></button></span>
+        <span><button className='btn bg-transparent' onClick={handleClick}><i className="bi bi-hand-thumbs-down"></i></button></span>
      )
 
  }

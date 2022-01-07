@@ -13,14 +13,14 @@ const LikeButton = (props) => {
     if(likedStatus){
         return (
             <span>
-                <button id={props.id} className='btn bg-transparent' onClick={handleClick}><i className="bi bi-hand-thumbs-up-fill"></i></button>
+                <button className='btn bg-transparent' onClick={handleClick} ><i className="bi bi-hand-thumbs-up-fill"></i></button>
             </span>
             
             );
     }
 
     return( 
-         <span><button id={props.id} className='btn bg-transparent' onClick={handleClick}><i className="bi bi-hand-thumbs-up"></i></button>
+         <span><button className='btn bg-transparent' onClick={handleClick} ><i className="bi bi-hand-thumbs-up"></i></button>
         </span>
     )  
     }
