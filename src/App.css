@@ -37,8 +37,11 @@ p{
     width: 35%
 }
 
-/* reference code for reversing order of list in future
-s
+ol {
+    list-style: none;
+}
+
+/* reference code for reversing ordered list in future
 ol {
     list-style: none;
     display: flex;
