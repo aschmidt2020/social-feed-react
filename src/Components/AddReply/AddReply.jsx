@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button'
 
 const AddReply = (props) => {
-    const [formExpanded, setFormExpanded] = useState(false);
-    const [name, setName] = useState(' ')
-    const [reply, setReply] = useState([])
+    // const [formExpanded, setFormExpanded] = useState(false);
+    const [name, setName] = useState(' ');
+    const [reply, setReply] = useState([]);
+    const [show, setShow] = useState(false);
 
-    function handleClick(event){
-        event.preventDefault();
-        let oppositeState = !formExpanded;
-        setFormExpanded(oppositeState);
-        debugger
-    }
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     function handleSubmit(event){
         
@@ -28,8 +27,9 @@ const AddReply = (props) => {
         }
 
         props.addReply(updatedPost);
-
+        setShow(false);
         resetForm();
+
     }
 
     function resetForm(){
@@ -37,48 +37,47 @@ const AddReply = (props) => {
         setReply('');
     }
 
-    if(formExpanded){
-        return (
-            <span className='center-text'>
-            <button id={props.timeStamp} className='btn bg-transparent' onClick={handleClick}>
+    return (
+        <>
+      <Button variant='bg-transparent' onClick={handleShow}>
             <i className="bi bi-chat-square-dots"></i>
-            </button>
+      </Button>
 
-            <form id='newReply' onSubmit={handleSubmit} style={{'marginTop':'1em'}}>
-            <div className='row'>
-
-            <div className='col-4'>
-                <div className="form-floating">
-                    <input id='nameForm' className='form-control'  type='text' value={name} onChange={(event) => setName(event.target.value)}/>
-                    <label >NAME</label>
-                </div>
-            </div>
-
-            <div className='col-6'>
-                <div className="form-floating">
-                    <input id='replyForm' className='form-control'  type='text' value={reply} onChange={(event) => setReply(event.target.value)}/> 
-                    <label>REPLY</label>
-                </div>
-            </div>
-
-            <div className='col-2'>
-                <button type='submit' className='btn btn-secondary' style={{'marginTop': '0.5em'}}>REPLY</button>
-            </div>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add A Reply</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
             
-            </div>
-        </form>
-        </span>
-        )
-    }
+        <form id='newReply' onSubmit={handleSubmit} style={{'marginTop':'1em'}}>
+             <div className='row'>
 
-    //will return just button if button is not expanded
-    return ( 
-        <span className='center-text'>
-            <button id={props.timeStamp} className='btn bg-transparent' onClick={handleClick}>
-            <i className="bi bi-chat-square-dots"></i>
-            </button>
-        </span>
-    );
+
+                 <div className="form-floating" style={{'marginBottom': '1em'}}>
+                     <input id='nameForm' className='form-control'  type='text' value={name} onChange={(event) => setName(event.target.value)}/>
+                     <label >NAME</label>
+                 </div>
+
+                 <div className="form-floating" style={{'marginBottom': '1em'}}>
+                     <input id='replyForm' className='form-control'  type='text' value={reply} onChange={(event) => setReply(event.target.value)}/> 
+                     <label>REPLY</label>
+                 </div>
+
+             </div>
+         </form>
+
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleSubmit}>
+            Add Reply
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+    )
 
     }
  
