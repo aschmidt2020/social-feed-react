@@ -30,29 +30,39 @@ const ReplySection = (props) => {
     }
 
     return ( 
-        <form id='newReply' onSubmit={handleSubmit} style={{'marginTop': '2em'}}>
-            <div className='row'>
+        <span className='center-text'>
+            <button className='btn bg-transparent' type="button" data-bs-toggle="collapse" data-bs-target="#addReply" aria-expanded="false" aria-controls="addReply">
+            <i className="bi bi-chat-square-dots"></i>
+            </button>
 
-            <div className='col-4'>
-                <div className="form-floating" style={{'marginBottom': '1em'},{'marginLeft': '1em'}}>
-                    <input id='nameForm' className='form-control' type='text' value={name} onChange={(event) => setName(event.target.value)}/>
-                    <label >NAME</label>
-                </div>
+            <div className="collapse" id='addReply'>
+                <span><br></br></span>
+                <form id='newReply' onSubmit={handleSubmit} >
+                    <div className='row'>
+
+                    <div className='col-4'>
+                        <div className="form-floating">
+                            <input id='nameForm' className='form-control'  type='text' value={name} onChange={(event) => setName(event.target.value)}/>
+                            <label >NAME</label>
+                        </div>
+                    </div>
+
+                    <div className='col-6'>
+                        <div className="form-floating">
+                            <input id='replyForm' className='form-control'  type='text' value={reply} onChange={(event) => setReply(event.target.value)}/> 
+                            <label>REPLY</label>
+                        </div>
+                    </div>
+
+                    <div className='col-2'>
+                        <button type='submit' className='btn btn-secondary' style={{'marginTop': '0.5em'}}>REPLY</button>
+                    </div>
+                    
+                    </div>
+                </form>
             </div>
 
-            <div className='col-6'>
-                <div className="form-floating">
-                    <input id='replyForm' className='form-control' type='text' value={reply} onChange={(event) => setReply(event.target.value)}/> 
-                    <label>REPLY</label>
-                </div>
-            </div>
-
-            <div className='col-2'>
-                <button type='submit' className='btn btn-secondary' style={{'marginTop': '0.5em'}}>REPLY</button>
-            </div>
-            </div>
-            
-        </form>
+        </span>
     );
 
     }

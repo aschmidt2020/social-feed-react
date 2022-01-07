@@ -10,11 +10,29 @@
     border-radius: 1em;
 }
 
+.border-box-comments {
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1em;
+    border-radius: 1em;
+}
 p{
     font-weight: bold;
     font-size: larger;
 }
 
+.comment-text {
+    font-size: smaller;
+    font-weight: normal;
+}
+
+.comment-name {
+    font-size: smaller;
+    font-weight: bold;
+}
 .post-text {
     font-size: medium;
     font-weight: normal;
