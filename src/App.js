@@ -11,6 +11,24 @@ function App() {
     let tempEntries = [...entries, post]; //adds new post to end of entry list in order to keep indexing correct for like buttons
     setEntries(tempEntries);
   }
+
+  function deleteEntry(post){
+    let tempEntries = [...entries]
+    let entryToBeDeletedIndex = entries.findIndex(e => {
+      if(e.user == post.user && e.post == post.post && e.date == post.date){
+        return true;
+      }
+      else{
+        return false;
+      }
+    })
+
+    //debugger
+
+    tempEntries.splice(entryToBeDeletedIndex, 1);
+    console.log(tempEntries);
+    setEntries(tempEntries);
+  }
   
   return (
     <div>
@@ -26,7 +44,7 @@ function App() {
           </div>
 
           <div className='col' style={{'marginTop': '2em'}}>
-          <DisplayEntries entries={entries} />
+          <DisplayEntries entries={entries} deleteEntry={deleteEntry}/>
           </div>
         </div>
 

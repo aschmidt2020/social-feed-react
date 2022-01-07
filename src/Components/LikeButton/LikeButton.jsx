@@ -4,7 +4,7 @@ const LikeButton = (props) => {
    const [likedStatus, setLikedStatus] = useState(false);
    
    function handleClick(event){
-        debugger
+        //debugger
         event.preventDefault();
         let oppositeState = !likedStatus;
         setLikedStatus(oppositeState);

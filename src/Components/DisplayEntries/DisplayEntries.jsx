@@ -1,8 +1,20 @@
 import LikeButton from '../LikeButton/LikeButton';
 import DislikeButton from '../DislikeButton/DislikeButton'
+import DeleteButton from '../DeleteButton/DeleteButton'
+
 
 const DisplayEntries = (props) => {    
     // will display list in reverse order so newest posts appear on top
+
+    // function handleDelete(event, entry) {
+    //     event.preventDefault();
+    //     debugger
+    //     let confirmDelete = window.confirm('Are you sure you would like to delete this post? Select OK for yes or cancel to cancel.')
+    //     if(confirmDelete){
+    //         props.deleteEntry(entry); 
+    //     }
+    // }
+
     return (
         <ol reversed="reversed">
             {props.entries.map((entry,index) => {
@@ -16,6 +28,8 @@ const DisplayEntries = (props) => {
                                     <LikeButton id={index} />
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <DislikeButton id={index} />
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <DeleteButton id={index} deleteEntry={props.deleteEntry} entry={entry} />
                                 </span>
                         </div>
                         </li>
@@ -28,3 +42,6 @@ const DisplayEntries = (props) => {
     }
  
 export default DisplayEntries; 
+
+//<DeleteButton id={index} deleteEntry={props.deleteEntry} entry={entry} />
+//<button className='btn bg-transparent' onClick={() => {handleDelete({entry})}}><i className="bi bi-trash" style={{'position': 'right'}}></i></button>
