@@ -13,15 +13,17 @@ const DisplayEntries = (props) => {
                             <span className="right-align-text"><DeleteButton deleteEntry={props.deleteEntry} entry={entry}/></span>
                             <p>{entry.user}</p>
                             <p className='post-text'>{entry.post}</p>
-                            <figcaption className="blockquote-footer center-text"> <cite title="Source Title">{entry.date} </cite> </figcaption>
+                            <figcaption className="blockquote-footer left-align-text"> <cite title="Source Title">{entry.date}</cite>  
+                            </figcaption>
                             <span><br></br></span>
 
                             <span className='center-text'>
                                 <LikeDislikeButton />
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <ReplySection entry={entry} addReply={props.addReply}/>
-                                <span><br></br></span>
                             </span>
+                            
+
                             
                             <span style={{'marginTop':'1em'}}>
                                 <p>Comments</p>

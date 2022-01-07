@@ -6,6 +6,10 @@
     text-align: right;
 }
 
+.left-align-text{
+    text-align: left;
+}
+
 .border-box {
     border: 1px;
     border-style: solid;
@@ -22,6 +26,7 @@
     padding-bottom: 0.5em;
     padding-left: 1em;
     border-radius: 1em;
+    background-color: #f1f3f4;
 }
 p{
     font-weight: bold;
