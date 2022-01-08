@@ -3,7 +3,6 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 
 const EditReply = (props) => {
-    // const [formExpanded, setFormExpanded] = useState(false);
     const [name, setName] = useState(props.reply.name);
     const [reply, setReply] = useState(props.reply.reply);
     const [show, setShow] = useState(false);
@@ -13,7 +12,7 @@ const EditReply = (props) => {
 
     function handleSubmit(event){
         event.preventDefault();
-        debugger
+        //debugger
         let updatedReplies = [...props.replies];
 
         let editedReply = {
@@ -45,13 +44,8 @@ const EditReply = (props) => {
         props.editReply(updatedPost);
         setShow(false);
         debugger
-     //   resetForm();
-    }
 
-    // function resetForm(){
-    //     setName(props.reply.name);
-    //     setReply(props.reply.reply);
-    // }
+    }
 
     return (
         <>
