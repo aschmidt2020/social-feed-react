@@ -18,7 +18,7 @@ const DeleteReply = (props) => {
 
             updatedReplies.splice(replyToBeDeletedIndex, 1);
             
-            console.log(updatedReplies)
+            //console.log(updatedReplies)
 
             let updatedPost = {
                 timeStamp: props.entry.timeStamp,

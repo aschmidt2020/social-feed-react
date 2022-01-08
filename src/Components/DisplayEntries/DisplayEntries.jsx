@@ -28,7 +28,7 @@ const DisplayEntries = (props) => {
                             </span>
     
                             <span style={{'marginTop':'1em'}}>
-                                <ReplySection replies={entry.replySection} deleteReply={props.deleteReply} entry={entry}/>
+                                <ReplySection replies={entry.replySection} deleteReply={props.deleteReply} editReply={props.editReply} entry={entry}/>
                             </span>
                         </div>
                         </li>

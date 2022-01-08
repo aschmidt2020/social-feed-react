@@ -10,7 +10,7 @@ function App() {
          user: 'Welcome to SocialFeed', 
          post: 'Please start creating posts.', 
          date:'and make sure to have fun!',
-         replySection: []
+         replySection: [],
         }])
 
   function addNewEntry(post){
@@ -71,7 +71,24 @@ function App() {
 
   function editEntry(entry){
     let tempEntries = [...entries];
-     let entryToBeDeletedIndex = entries.findIndex(e => {
+    let entryToBeDeletedIndex = entries.findIndex(e => {
+       if(e.timeStamp == entry.timeStamp){ //used timeStamp to identify since it should be unique for each post
+         return true;
+       }
+       else{
+         return false;
+       }
+     })
+ 
+     debugger
+     tempEntries.splice(entryToBeDeletedIndex, 1); //deletes old entry
+     tempEntries.splice(entryToBeDeletedIndex, 0, entry); //replaces with new entry
+     setEntries(tempEntries)
+  }
+
+  function editReply(entry){
+    let tempEntries = [...entries];
+    let entryToBeDeletedIndex = entries.findIndex(e => {
        if(e.timeStamp == entry.timeStamp){ //used timeStamp to identify since it should be unique for each post
          return true;
        }
@@ -100,7 +117,7 @@ function App() {
           </div>
 
           <div className='col' style={{'marginTop': '2em'}}>
-          <DisplayEntries entries={entries} deleteEntry={deleteEntry} addReply={addReply} deleteReply={deleteReply} editEntry={editEntry}/>
+          <DisplayEntries entries={entries} deleteEntry={deleteEntry} addReply={addReply} deleteReply={deleteReply} editEntry={editEntry} editReply={editReply}/>
           </div>
         </div>
       </div>

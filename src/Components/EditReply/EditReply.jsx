@@ -1,65 +1,67 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 
-const AddReply = (props) => {
-
-    let today = new Date();
-    let todayTimeStamp = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate() + ' ' +
-                     today.getHours() + ':' + String(today.getMinutes()).padStart(2, "0") + ':' + String(today.getSeconds()).padStart(2, "0") + ':' + 
-                     String(today.getMilliseconds()).padStart(2, "0");
-
-    const [timeStamp, setTimeStamp] = useState('')
-    const [name, setName] = useState(' ');
-    const [reply, setReply] = useState([]);
+const EditReply = (props) => {
+    // const [formExpanded, setFormExpanded] = useState(false);
+    const [name, setName] = useState(props.reply.name);
+    const [reply, setReply] = useState(props.reply.reply);
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    useEffect(() => { //will update date/time when time changed
-      setTimeStamp(todayTimeStamp)
-    })
-
-
     function handleSubmit(event){
-        
         event.preventDefault();
         debugger
-        let newReply = {
-          replyTimeStamp: timeStamp,
-          name: name,
-          reply: reply
+        let updatedReplies = [...props.replies];
+
+        let editedReply = {
+            replyTimeStamp: props.reply.replyTimeStamp,
+            name: name,
+            reply: reply
         }
 
+        let replyToBeDeleted = props.replies.findIndex(e => {
+            if(e.replyTimeStamp == editedReply.replyTimeStamp){ //used timeStamp to identify since it should be unique for each post
+              return true;
+            }
+            else{
+              return false;
+            }
+          })
+
+        updatedReplies.splice(replyToBeDeleted, 1); //deletes old entry
+        updatedReplies.splice(replyToBeDeleted, 0, editedReply); //replaces with new entry
+        
         let updatedPost = {
             timeStamp: props.entry.timeStamp,
             user: props.entry.user,
             post: props.entry.post,
             date: props.entry.date,
-            replySection: [newReply, ...props.entry.replySection] //adds new reply onto old reply section
+            replySection: [...updatedReplies] //adds new reply onto old reply section
         }
 
-        props.addReply(updatedPost);
+        props.editReply(updatedPost);
         setShow(false);
-        resetForm();
-
+        debugger
+     //   resetForm();
     }
 
-    function resetForm(){
-        setName(''); //sets user and post to blank to reset form after submission
-        setReply('');
-    }
+    // function resetForm(){
+    //     setName(props.reply.name);
+    //     setReply(props.reply.reply);
+    // }
 
     return (
         <>
       <Button variant='bg-transparent' onClick={handleShow}>
-            <i className="bi bi-chat-square-dots"></i>
+        <i className="bi bi-pencil"></i>
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Add A Reply</Modal.Title>
+          <Modal.Title>Edit Reply</Modal.Title>
         </Modal.Header>
         <Modal.Body>
             
@@ -86,7 +88,7 @@ const AddReply = (props) => {
             Close
           </Button>
           <Button variant="primary" onClick={handleSubmit}>
-            Add Reply
+            Edit Reply
           </Button>
         </Modal.Footer>
       </Modal>
@@ -95,4 +97,4 @@ const AddReply = (props) => {
 
     }
  
-export default AddReply;
+export default EditReply;
