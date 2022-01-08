@@ -2,6 +2,7 @@ import DeleteButton from '../DeleteButton/DeleteButton';
 import AddReply from '../AddReply/AddReply';
 import ReplySection from '../ReplySection/ReplySection';
 import LikeDislikeButton from '../LikeDislikeButton/LikeDislikeButton';
+import EditPost from '../EditPost/EditPost';
 
 const DisplayEntries = (props) => {    
 
@@ -11,7 +12,9 @@ const DisplayEntries = (props) => {
                 return (
                         <li key={entry.timeStamp}>
                         <div className='row border-box' style={{'marginTop' : '1em'}}>
-                            <span className="right-align-text"><DeleteButton deleteEntry={props.deleteEntry} entry={entry}/></span>
+                            <span className="right-align-text">
+                                <EditPost entry={entry} editEntry={props.editEntry}/>
+                                <DeleteButton deleteEntry={props.deleteEntry} entry={entry}/></span>
                             <p>{entry.user}</p>
                             <p className='post-text'>{entry.post}</p>
                             <figcaption className="blockquote-footer left-align-text"> <cite title="Source Title">{entry.date}</cite>  

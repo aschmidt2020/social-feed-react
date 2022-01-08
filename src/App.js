@@ -69,6 +69,23 @@ function App() {
      setEntries(tempEntries)
   }
 
+  function editEntry(entry){
+    let tempEntries = [...entries];
+     let entryToBeDeletedIndex = entries.findIndex(e => {
+       if(e.timeStamp == entry.timeStamp){ //used timeStamp to identify since it should be unique for each post
+         return true;
+       }
+       else{
+         return false;
+       }
+     })
+ 
+     debugger
+     tempEntries.splice(entryToBeDeletedIndex, 1); //deletes old entry
+     tempEntries.splice(entryToBeDeletedIndex, 0, entry); //replaces with new entry
+     setEntries(tempEntries)
+  }
+
   return (
     <div>
       <div className='container'>
@@ -83,7 +100,7 @@ function App() {
           </div>
 
           <div className='col' style={{'marginTop': '2em'}}>
-          <DisplayEntries entries={entries} deleteEntry={deleteEntry} addReply={addReply} deleteReply={deleteReply}/>
+          <DisplayEntries entries={entries} deleteEntry={deleteEntry} addReply={addReply} deleteReply={deleteReply} editEntry={editEntry}/>
           </div>
         </div>
       </div>
