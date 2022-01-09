@@ -1,3 +1,4 @@
+
 .center-text {
     text-align: center;
 }
@@ -16,6 +17,7 @@
     border-color: black;
     padding: 2em;
     border-radius: 1em;
+    background-color: #f5fffa;
 }
 
 .border-box-comments {

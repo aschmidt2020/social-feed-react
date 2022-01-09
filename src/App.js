@@ -5,6 +5,7 @@ import './App.css'
 
 function App() {
 
+  const [lightMode, setLightMode] = useState(true)
   const [entries, setEntries] = useState([
         {timeStamp: "0000-00-00 00:00:00:000",
          user: 'Welcome to SocialFeed', 
@@ -12,6 +13,25 @@ function App() {
          date:'and make sure to have fun!',
          replySection: [],
         }])
+
+  
+  function toggleLightMode(event){
+    event.preventDefault();
+    debugger
+    let oppositeState = !lightMode;
+    setLightMode(oppositeState);
+    debugger
+    setBackground(oppositeState);
+  }
+
+  function setBackground(lightMode){
+    if(lightMode){
+      document.body.style.backgroundColor = '#f5fffa';
+    }
+    else {
+      document.body.style.backgroundColor = '#003118';
+    }
+  }
 
   function addNewEntry(post){
     let tempEntries = [post, ...entries];
@@ -107,8 +127,13 @@ function App() {
     <div>
       <div className='container'>
         <div className='row sticky-top' style={{'marginTop': '2em'}}>
-          <h1 style={{'backgroundColor': '#a3aeba'}}>&nbsp;&nbsp;Social
-          <small className='text-white'>Feed<i className="bi bi-chat-square position-absolute" style={{"fontSize": "1rem"}}></i></small></h1>
+          <div className='col-11' style={{'backgroundColor': '#a3aeba'}}>
+            <h1>Social<small className='text-white'>Feed<i className="bi bi-chat-square position-absolute" style={{"fontSize": "1rem"}}></i></small></h1>
+          </div>
+
+          <div className='col-1' style={{'backgroundColor': '#a3aeba'}}>
+            <button className='btn bg-transparent' onClick={toggleLightMode}><i className="bi bi-lightbulb" style={{"fontSize": "1.5rem"}}></i></button>
+          </div>
         </div>
 
         <div className='row' style={{'marginTop': '1em'}, {'marginBottom': '1em'}}>

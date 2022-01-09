@@ -39,7 +39,7 @@ const AddEntry = (props) => {
     }
 
     return (
-        <span>
+        <div>
             <div className='row addEntry'>
                 <div className='col-10 p-5 mb-4 rounded' style={{'marginTop': '3em'}}>
                     <p>Add A Post Here</p>
@@ -62,7 +62,7 @@ const AddEntry = (props) => {
                     <figcaption className="blockquote-footer center-text">Toy T. Bennett<cite title="Source Title"> The Light in the Heart </cite> </figcaption>
                 </div>
                 </div>
-        </span>
+        </div>
         );
 
             
