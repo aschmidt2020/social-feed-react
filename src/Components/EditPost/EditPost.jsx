@@ -42,12 +42,12 @@ const EditPost = (props) => {
           <form id='newReply' onSubmit={handleSubmit} style={{'marginTop':'1em'}}>
                <div className='row'>
                    <div className="form-floating" style={{'marginBottom': '1em'}}>
-                       <input id='nameForm' className='form-control'  type='text' value={user} defaultValue={props.entry.user} onChange={(event) => setUser(event.target.value)}/>
+                       <input id='nameForm' className='form-control'  type='text' value={user} onChange={(event) => setUser(event.target.value)}/>
                        <label >NAME</label>
                    </div>
   
                    <div className="form-floating" style={{'marginBottom': '1em'}}>
-                       <input id='replyForm' className='form-control'  type='text' value={post} defaultValue={props.entry.post} onChange={(event) => setPost(event.target.value)}/> 
+                       <input id='replyForm' className='form-control'  type='text' value={post} onChange={(event) => setPost(event.target.value)}/> 
                        <label>REPLY</label>
                    </div>
   

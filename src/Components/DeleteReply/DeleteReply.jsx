@@ -2,7 +2,7 @@ const DeleteReply = (props) => {
     
     function handleClick(event){
         event.preventDefault();
-        debugger
+        //debugger
         let updatedReplies = [...props.replies]
 
         let confirmDelete = window.confirm(`Are you sure you would like to delete this comment?\n\nName of user: '${props.reply.name}'\nPost content: '${props.reply.reply}'\n\nSelect OK for yes or Cancel to cancel.`)

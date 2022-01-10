@@ -17,10 +17,8 @@ function App() {
   
   function toggleLightMode(event){
     event.preventDefault();
-    debugger
     let oppositeState = !lightMode;
     setLightMode(oppositeState);
-    debugger
     setBackground(oppositeState);
   }
 
@@ -83,7 +81,7 @@ function App() {
        }
      })
  
-     debugger
+     //debugger
      tempEntries.splice(entryToBeDeletedIndex, 1); //deletes old entry
      tempEntries.splice(entryToBeDeletedIndex, 0, entry); //replaces with new entry
      setEntries(tempEntries)
@@ -100,7 +98,7 @@ function App() {
        }
      })
  
-     debugger
+     //debugger
      tempEntries.splice(entryToBeDeletedIndex, 1); //deletes old entry
      tempEntries.splice(entryToBeDeletedIndex, 0, entry); //replaces with new entry
      setEntries(tempEntries)
@@ -117,7 +115,7 @@ function App() {
        }
      })
  
-     debugger
+     //debugger
      tempEntries.splice(entryToBeDeletedIndex, 1); //deletes old entry
      tempEntries.splice(entryToBeDeletedIndex, 0, entry); //replaces with new entry
      setEntries(tempEntries)

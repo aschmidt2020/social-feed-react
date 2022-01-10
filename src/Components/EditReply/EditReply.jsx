@@ -43,7 +43,7 @@ const EditReply = (props) => {
 
         props.editReply(updatedPost);
         setShow(false);
-        debugger
+        //debugger
 
     }
 

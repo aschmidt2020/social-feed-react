@@ -6,7 +6,6 @@ const LikeDislikeButton = (props) => {
    
     function handleClickLike(event){
         event.preventDefault();
-        debugger
         if(likedStatus == true){
             setLikedStatus(false);
             setDislikedStatus(false)
@@ -16,12 +15,11 @@ const LikeDislikeButton = (props) => {
             setDislikedStatus(likedStatus);
             setLikedStatus(oppositeState);
         }
-        debugger 
+        //debugger 
     }
 
     function handleClickDislike(event){
         event.preventDefault();
-        debugger
         if(dislikedStatus == true){
             setLikedStatus(false);
             setDislikedStatus(false);
@@ -31,7 +29,7 @@ const LikeDislikeButton = (props) => {
             setLikedStatus(dislikedStatus);
             setDislikedStatus(oppositeState);
         }
-        debugger
+        //debugger
     }
 
     

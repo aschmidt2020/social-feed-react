@@ -7,7 +7,7 @@ const ReplySection = (props) => {
             <p>Replies</p>
             {props.replies.map((reply) => {
                 return (
-                    <li key={reply.replyTimeStamp}>
+                    <div key={reply.replyTimeStamp}>
                         <div className='row border-box-comments' style={{'marginBottom': '1em'}}>
                             <div className="col-9">
                                 <span className='comment-name'>{reply.name}</span>
@@ -20,7 +20,7 @@ const ReplySection = (props) => {
                                 <span><DeleteReply deleteReply={props.deleteReply} entry={props.entry} reply={reply} replies={props.replies}/> </span>
                             </div>
                         </div>
-                    </li>
+                    </div>
                 )
         
             })}

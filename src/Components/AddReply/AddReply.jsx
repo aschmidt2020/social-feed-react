@@ -9,7 +9,6 @@ const AddReply = (props) => {
                      today.getHours() + ':' + String(today.getMinutes()).padStart(2, "0") + ':' + String(today.getSeconds()).padStart(2, "0") + ':' + 
                      String(today.getMilliseconds()).padStart(2, "0");
 
-    const [timeStamp, setTimeStamp] = useState('')
     const [name, setName] = useState(' ');
     const [reply, setReply] = useState([]);
     const [show, setShow] = useState(false);
@@ -17,17 +16,12 @@ const AddReply = (props) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    useEffect(() => { //will update date/time when time changed
-      setTimeStamp(todayTimeStamp)
-    })
-
-
     function handleSubmit(event){
         
         event.preventDefault();
-        debugger
+        //debugger
         let newReply = {
-          replyTimeStamp: timeStamp,
+          replyTimeStamp: todayTimeStamp,
           name: name,
           reply: reply
         }

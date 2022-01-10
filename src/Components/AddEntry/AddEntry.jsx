@@ -8,23 +8,16 @@ const AddEntry = (props) => {
                      today.getHours() + ':' + String(today.getMinutes()).padStart(2, "0") + ':' + String(today.getSeconds()).padStart(2, "0") + ':' + 
                      String(today.getMilliseconds()).padStart(2, "0");
 
-    const [timeStamp, setTimeStamp] = useState('')
     const [user, setUser] = useState('');
     const [post, setPost] = useState('');
-    const [date, setDate] = useState('')
-
-    useEffect(() => { //will update date/time when time changed
-        setDate(todayDate);
-        setTimeStamp(todayTimeStamp)
-    })
 
     function handleSubmit(event){
         event.preventDefault();
         let newPost = {
-            timeStamp: timeStamp,
+            timeStamp: todayTimeStamp,
             user: user,
             post: post,
-            date: date,
+            date: todayDate,
             replySection: []
         };
 
